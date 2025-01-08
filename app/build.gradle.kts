@@ -27,7 +27,7 @@ android {
     namespace = "eu.kanade.tachiyomi"
 
     defaultConfig {
-        applicationId = "app.mihon"
+        applicationId = "app.mizureader"
 
         versionCode = 9
         versionName = "0.17.1"

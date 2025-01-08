@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.outlined.ArrowDownward
 import androidx.compose.material.icons.outlined.ErrorOutline
+import androidx.compose.material.icons.outlined.CloudDownload
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -86,6 +87,25 @@ private fun NotDownloadedIndicator(
     modifier: Modifier = Modifier,
     onClick: (ChapterDownloadAction) -> Unit,
 ) {
+    Box(
+        modifier = modifier
+            .size(IconButtonTokens.StateLayerSize)
+            .commonClickable(
+                enabled = enabled,
+                hapticFeedback = LocalHapticFeedback.current,
+                onLongClick = { onClick(ChapterDownloadAction.START_NOW) },
+                onClick = { onClick(ChapterDownloadAction.START) },
+            )
+            .secondaryItemAlpha(),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(
+            imageVector = Icons.Outlined.CloudDownload,
+            contentDescription = stringResource(MR.strings.manga_download),
+            modifier = Modifier.size(IndicatorSize),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
     Box(
         modifier = modifier
             .size(IconButtonTokens.StateLayerSize)
